@@ -31,14 +31,14 @@ import image8 from "../../assets/images/img-8.avif";
 import image9 from "../../assets/images/img-9.avif";
 import image10 from "../../assets/images/img-10.avif";
 import image11 from "../../assets/images/img-11.avif";
-// import Navbar from "./Navbar";
+import Navbar from "./Navbar";
 import { useMediaQuery } from "@mantine/hooks";
 
 export default function LandingPage() {
   const isSmallscreen = useMediaQuery("(max-width: 56.25em)");
   return (
     <>
-      {/* <Navbar /> */}
+      <Navbar />
 
       <Box
         pos="relative"
@@ -224,12 +224,7 @@ export default function LandingPage() {
         >
           <Stack gap={60}>
             <Stack>
-              <Title
-                fz={isSmallscreen ? 42 : 48}
-                fw={600}
-                ta={"center"}
-              
-              >
+              <Title fz={isSmallscreen ? 42 : 48} fw={600} ta={"center"}>
                 Travel Services Offered
               </Title>
               <Flex justify={"center"}>
