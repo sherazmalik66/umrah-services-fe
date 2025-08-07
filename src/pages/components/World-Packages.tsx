@@ -15,24 +15,28 @@ import {
   ActionIcon,
   Box,
   Button,
-  CheckIcon,
   TextInput,
 } from "@mantine/core";
 import image20 from "../../assets/images/img-20.avif";
 import image12 from "../../assets/images/img-12.avif";
 import image14 from "../../assets/images/img-14.avif";
 import Navbar from "./Navbar";
+import { useMediaQuery } from "@mantine/hooks";
+import IconBrandTwitter from "./iconTwitter";
+import IconBrandFacebook from "./iconFacebook";
+import IconInsta from "../auth/IconInsta";
+import IconBrandGoogle from "../../assets/icons/iconGoogle";
 function WorldPackages() {
+   const isSmallscreen = useMediaQuery("(max-width: 56.25em)")
   return (
     <>
     <Navbar/>
-      <Card shadow="none" padding={0} radius={0} h={300}>
+      <Card shadow="none" padding={0} radius={0} h={250} mt={80}>
         <BackgroundImage
           src={image20}
           style={{ objectFit: "fill" }}
           radius={0}
           h="100%"
-          w="100%"
         >
           <Overlay opacity={0.1} color="#000" zIndex={1} />
           <Center
@@ -43,7 +47,7 @@ function WorldPackages() {
             }}
           >
             <Stack>
-              <Title fz={62} fw={600} ta={"center"}>
+              <Title fz={isSmallscreen ? 36 : 62} fw={600} ta={"center"}>
                 Explore the World
               </Title>
               <Flex justify={"center"}>
@@ -57,21 +61,26 @@ function WorldPackages() {
         </BackgroundImage>
       </Card>
 
-      <Container fluid bg={"transparent"} px={60} py={70}>
-        <Stack gap={40}>
-          <Stack>
-            <Title fz={48} fw={600} ta={"center"}>
+      <Container fluid bg={"transparent"} px={isSmallscreen ? 20 : 60} py={isSmallscreen ? 20 : 60}>
+        <Stack gap={isSmallscreen ? 20 : 40}>
+          <Stack gap={isSmallscreen ? 10 : 20}>
+            <Title fz={isSmallscreen ? 36 : 48} fw={600} ta={"center"}>
               Customer Reviews
             </Title>
             <Flex justify={"center"}>
-              <Text fz={16} fw={500} w={"30%"} ta={"center"} c={"#6f737a"}>
+              <Text fz={16} fw={500} w={isSmallscreen ? "100%" : "30%"} ta={"center"} c={"#6f737a"}>
                 See what our clients say about our Umrah services.
               </Text>
             </Flex>
           </Stack>
 
-          <SimpleGrid cols={2} spacing={20}>
-            <Card bg={"#e3f2fd"} shadow="none" px={40} py={30} radius={2}>
+          <SimpleGrid cols={{
+           xs: 1,
+           sm: 2,
+           md: 2,
+           lg: 2
+          }} spacing={20}>
+            <Card bg={"#e3f2fd"} shadow="none" px={40} py={30} radius={isSmallscreen ? 8 : 2}>
               <Stack gap={40}>
                 <Stack gap={25}>
                   <Rating defaultValue={5} readOnly size="sm" color="black" />
@@ -102,7 +111,7 @@ function WorldPackages() {
               </Stack>
             </Card>
 
-            <Card bg={"#e3f2fd"} shadow="none" px={40} py={30} radius={2}>
+            <Card bg={"#e3f2fd"} shadow="none" px={40} py={30} radius={isSmallscreen ? 8 : 2}>
               <Stack gap={55}>
                 <Stack gap={25}>
                   <Rating defaultValue={5} readOnly size="sm" color="black" />
@@ -135,34 +144,38 @@ function WorldPackages() {
         </Stack>
       </Container>
 
-      <Card bg={"#1a237e"} px={55} py={40} radius={0}>
-        <Flex justify={"space-between"} gap="xl" pt={20}>
+        <Card bg={"#1a237e"} px={isSmallscreen ? 25 : 55} py={isSmallscreen ? 20 : 40} radius={0}>
+        <Flex justify={"space-between"} gap={40} wrap={"wrap"} pt={20}>
           <Stack gap="xs">
-            <Text fz={22} fw={700} c={"white"}>
+            <Text fz={22} fw={600} c={"white"}>
               Travel
             </Text>
-            <Text size="sm" c={"white"} w={"80%"}>
+            <Text size="sm" c={"white"} w={isSmallscreen ? "100%" : "80%"}>
               Explore Umrah and global travel packages with us.
             </Text>
-            <Group gap="md" mt="md">
-              <ActionIcon size="lg" radius={25} bg={"red"}>
-                <CheckIcon size={24} />
+            <Group mt="md">
+              <ActionIcon size={isSmallscreen ? 20 : 30} bg={"transparent"}>
+                <IconBrandTwitter />
               </ActionIcon>
-              <ActionIcon size="lg" radius={25} bg={"red"}>
-                <CheckIcon size={24} />
+              <ActionIcon size={isSmallscreen ? 20 : 30} bg={"transparent"}>
+                <IconBrandFacebook />
               </ActionIcon>
-              <ActionIcon size="lg" radius={25} bg={"red"}>
-                <CheckIcon size={24} />
+              <ActionIcon size={isSmallscreen ? 20 : 30} bg={"transparent"}>
+                <IconInsta />
               </ActionIcon>
-              <ActionIcon size="lg" radius={25} bg={"red"}>
-                <CheckIcon size={24} />
+              <ActionIcon size={isSmallscreen ? 20 : 30} bg={"transparent"}>
+                <IconBrandGoogle />
               </ActionIcon>
             </Group>
           </Stack>
 
-          <Flex gap={80} w={"50%"}>
-            <Stack gap={15}>
-              <Text fz={16} fw={700} c={"white"}>
+          <Flex
+            gap={isSmallscreen ? 30 : 80}
+            w={isSmallscreen ? "100%" : "50%"}
+            direction={isSmallscreen ? "column" : "row"}
+          >
+            <Stack gap={isSmallscreen ? 8 : 15}>
+              <Text fz={16} fw={600} c={"white"}>
                 PACKAGES
               </Text>
               <Box>
@@ -176,7 +189,7 @@ function WorldPackages() {
             </Stack>
 
             <Stack gap={15} w={"100%"}>
-              <Text c={"white"} size="md" fw={700}>
+              <Text c={"white"} size="md" fw={600}>
                 SERVICES
               </Text>
 
@@ -201,7 +214,12 @@ function WorldPackages() {
             </Stack>
           </Flex>
         </Flex>
-        <Text size="sm" mt={30} c={"white"}>
+        <Text
+          size="sm"
+          mt={30}
+          c={"white"}
+          ta={isSmallscreen ? "center" : "start"}
+        >
           © 2025. All rights reserved.
         </Text>
       </Card>

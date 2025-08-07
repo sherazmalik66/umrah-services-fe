@@ -16,7 +16,6 @@ import {
   Textarea,
   TextInput,
   ActionIcon,
-  CheckIcon,
 } from "@mantine/core";
 
 import video from "../../assets/images/video.mp4";
@@ -33,6 +32,10 @@ import image10 from "../../assets/images/img-10.avif";
 import image11 from "../../assets/images/img-11.avif";
 import Navbar from "./Navbar";
 import { useMediaQuery } from "@mantine/hooks";
+import IconBrandTwitter from "./iconTwitter";
+import IconInsta from "../auth/IconInsta";
+import IconBrandFacebook from "./iconFacebook";
+import IconBrandGoogle from "../../assets/icons/iconGoogle";
 
 export default function LandingPage() {
   const isSmallscreen = useMediaQuery("(max-width: 56.25em)");
@@ -67,12 +70,12 @@ export default function LandingPage() {
             bg="transparent"
             shadow="none"
           >
-            <Stack gap={20}>
+            <Stack gap={20} mt={isSmallscreen ? 90 : 0}>
               <Flex justify="center">
                 <Title
-                  fz={isSmallscreen ? 46 : 62}
+                  fz={isSmallscreen ? 36 : 62}
                   ta="center"
-                  fw={isSmallscreen ? 700 : 600}
+                  fw={600}
                   c="white"
                 >
                   Explore Your Dream Travel Packages Today
@@ -96,7 +99,7 @@ export default function LandingPage() {
               >
                 <Button
                   variant="outline"
-                  w={200}
+                  w={isSmallscreen ? "80%" : 200}
                   h={55}
                   fz={16}
                   style={{
@@ -110,7 +113,7 @@ export default function LandingPage() {
                 <Button
                   bg={"transparent"}
                   c="white"
-                  w={200}
+                  w={isSmallscreen ? "80%" : 200}
                   h={55}
                   fz={16}
                   style={{
@@ -127,7 +130,6 @@ export default function LandingPage() {
 
       <Container
         fluid
-        w={"100vw"}
         px={isSmallscreen ? 10 : 60}
         py={isSmallscreen ? 30 : 70}
       >
@@ -142,16 +144,16 @@ export default function LandingPage() {
           >
             <Card
               p={2}
-              h={460}
+              h={isSmallscreen ? 280 : 460}
               radius={20}
-              py={isSmallscreen ? 25 : 70}
+              py={isSmallscreen ? 0 : 70}
               px={10}
               bg={"transparent"}
               shadow="none"
             >
               <Stack gap={isSmallscreen ? 20 : 30}>
                 <Title
-                  fz={isSmallscreen ? 40 : 46}
+                  fz={isSmallscreen ? 36 : 46}
                   fw={600}
                   w={isSmallscreen ? "100%" : "50%"}
                   ta={isSmallscreen ? "center" : "start"}
@@ -170,9 +172,9 @@ export default function LandingPage() {
                 <Flex justify={isSmallscreen ? "center" : "start"}>
                   <Button
                     variant="outline"
-                    w={200}
+                    w={isSmallscreen ? "80%" : 200}
                     h={55}
-                    mt={isSmallscreen ? 30 : 0}
+                    mt={isSmallscreen ? 15 : 0}
                     fz={16}
                     style={{
                       borderRadius: 35,
@@ -213,18 +215,18 @@ export default function LandingPage() {
         </Grid>
       </Container>
 
-      <Stack>
+      <Stack gap={0}>
         <Container
           fluid
           bg={"#e3f2fd"}
           w={"100vw"}
-          h={isSmallscreen ? "130vh" : "110vh"}
-          px={isSmallscreen ? 0 : 60}
+          h={isSmallscreen ? "210vh" : "110vh"}
+          px={isSmallscreen ? 15 : 60}
           py={isSmallscreen ? 10 : 70}
         >
-          <Stack gap={60}>
-            <Stack>
-              <Title fz={isSmallscreen ? 42 : 48} fw={600} ta={"center"}>
+          <Stack gap={isSmallscreen ? 30 : 60}>
+            <Stack px={5}>
+              <Title fz={isSmallscreen ? 36 : 48} fw={600} ta={"center"}>
                 Travel Services Offered
               </Title>
               <Flex justify={"center"}>
@@ -250,27 +252,33 @@ export default function LandingPage() {
                 }}
               >
                 <BackgroundImage
-                  px={30}
+                  px={isSmallscreen ? 10 : 30}
                   radius={20}
-                  h={300}
+                  h={isSmallscreen ? 380 : 300}
                   src={image3}
                   pos={"relative"}
                 >
                   <Card
-                    h={190}
+                    h={isSmallscreen ? 150 : 190}
                     w={"90%"}
                     radius={0}
                     pos={"absolute"}
-                    top={225}
-                    left={30}
-                    py={40}
+                    top={isSmallscreen ? 300 : 225}
+                    left={isSmallscreen ? "5%" : 30}
+                    py={isSmallscreen ? 20 : 40}
                   >
                     <Stack gap={13}>
-                      <Title fz={20} ta={"center"}>
+                      <Title fz={isSmallscreen ? 18 : 20} ta={"center"}>
                         Global Travel Packages
                       </Title>
                       <Flex justify={"center"}>
-                        <Text ta={"center"} w={"75%"} fw={500} c={"#727479"}>
+                        <Text
+                          ta={"center"}
+                          w={"90%"}
+                          fw={500}
+                          fz={isSmallscreen ? 14 : 16}
+                          c={"#727479"}
+                        >
                           Discover diverse travel packages that cater to your
                           wanderlust and explore the world with us.
                         </Text>
@@ -279,7 +287,9 @@ export default function LandingPage() {
                   </Card>
                 </BackgroundImage>
               </Grid.Col>
+
               <Grid.Col
+                mt={isSmallscreen ? 70 : 0}
                 span={{
                   xs: 12,
                   sm: 12,
@@ -289,27 +299,33 @@ export default function LandingPage() {
                 }}
               >
                 <BackgroundImage
-                  px={40}
+                  px={isSmallscreen ? 10 : 40}
                   radius={20}
-                  h={300}
+                  h={isSmallscreen ? 380 : 300}
                   src={image4}
                   pos={"relative"}
                 >
                   <Card
-                    h={190}
+                    h={isSmallscreen ? 150 : 190}
                     w={"90%"}
                     radius={0}
                     pos={"absolute"}
-                    top={225}
-                    left={30}
-                    py={40}
+                    top={isSmallscreen ? 300 : 225}
+                    left={isSmallscreen ? "5%" : 30}
+                    py={isSmallscreen ? 20 : 40}
                   >
                     <Stack gap={13}>
-                      <Title fz={20} ta={"center"}>
+                      <Title fz={isSmallscreen ? 18 : 20} ta={"center"}>
                         Umrah Package Options
                       </Title>
                       <Flex justify={"center"}>
-                        <Text ta={"center"} w={"75%"} fw={500} c={"#727479"}>
+                        <Text
+                          ta={"center"}
+                          w={"90%"}
+                          fw={500}
+                          fz={isSmallscreen ? 14 : 16}
+                          c={"#727479"}
+                        >
                           Choose from custom or built-in packages designed to
                           enhance your Umrah experience with ease.
                         </Text>
@@ -322,60 +338,102 @@ export default function LandingPage() {
           </Stack>
         </Container>
 
-        <Container fluid bg={"transparent"} px={60} py={70}>
-          <Stack gap={60}>
+        <Container
+          fluid
+          bg={"transparent"}
+          px={isSmallscreen ? 15 : 60}
+          py={isSmallscreen ? 15 : 70}
+        >
+          <Stack gap={isSmallscreen ? 25 : 60}>
             <Stack>
-              <Title fz={48} fw={600} ta={"center"}>
+              <Title fz={isSmallscreen ? 36 : 48} fw={600} ta={"center"}>
                 Gallery
               </Title>
               <Flex justify={"center"}>
-                <Text fz={16} fw={500} w={"48%"} ta={"center"}>
+                <Text
+                  fz={16}
+                  fw={500}
+                  w={isSmallscreen ? "100%" : "48%"}
+                  ta={"center"}
+                >
                   Explore our travel packages and unforgettable experiences
                   worldwide.
                 </Text>
               </Flex>
             </Stack>
 
-            <SimpleGrid cols={2} spacing={20}>
-              <Card h={450} p={0}>
+            <SimpleGrid
+              cols={{
+                xs: 1,
+                sm: 2,
+                md: 2,
+              }}
+              spacing={20}
+            >
+              <Card h={450} p={0} bg={"transparent"} shadow="none">
                 <Image h={"100%"} radius={20} src={image5}></Image>
               </Card>
-              <Card h={450} p={0}>
+              <Card h={450} p={0} bg={"transparent"} shadow="none">
                 <Image h={"100%"} radius={20} src={image7}></Image>
               </Card>
-              <Card h={450} p={0}>
+              <Card h={450} p={0} bg={"transparent"} shadow="none">
                 <Image h={"100%"} radius={20} src={image8}></Image>
               </Card>
-              <Card h={450} p={0}>
+              <Card h={450} p={0} bg={"transparent"} shadow="none">
                 <Image h={"100%"} radius={20} src={image6}></Image>
               </Card>
 
-              <Card h={450} p={0}>
+              <Card h={450} p={0} bg={"transparent"} shadow="none">
                 <Image h={"100%"} radius={20} src={image9}></Image>
               </Card>
-              <Card h={450} p={0}>
+              <Card h={450} p={0} bg={"transparent"} shadow="none">
                 <Image h={"100%"} radius={20} src={image10}></Image>
               </Card>
             </SimpleGrid>
           </Stack>
         </Container>
 
-        <Container fluid w={"100vw"} px={60} py={70}>
-          <Stack gap={60}>
-            <Stack gap={70}>
-              <Title fz={48} fw={600} ta={"center"}>
+        <Container
+          fluid
+          w={"100vw"}
+          px={isSmallscreen ? 20 : 60}
+          py={isSmallscreen ? 20 : 70}
+        >
+          <Stack gap={isSmallscreen ? 20 : 60}>
+            <Stack gap={isSmallscreen ? 15 : 40}>
+              <Title fz={isSmallscreen ? 34 : 48} fw={600} ta={"center"}>
                 Get in Touch With Us
               </Title>
               <Flex justify={"center"}>
-                <Text fz={16} fw={500} w={"30%"} ta={"center"}>
+                <Text
+                  fz={16}
+                  fw={500}
+                  w={isSmallscreen ? "100%" : "30%"}
+                  ta={"center"}
+                >
                   Contact us for personalized Umrah and travel package
                   inquiries.
                 </Text>
               </Flex>
             </Stack>
 
-            <SimpleGrid cols={2} spacing={0} px={40}>
-              <Card bg={"#e3f2fd"} px={50} py={30} radius={20} h={450}>
+            <SimpleGrid
+              cols={{
+                xs: 1,
+                sm: 1,
+                md: 1,
+                lg: 2,
+              }}
+              spacing={0}
+              px={isSmallscreen ? 0 : 40}
+            >
+              <Card
+                bg={"#e3f2fd"}
+                px={isSmallscreen ? 20 : 50}
+                py={30}
+                radius={isSmallscreen ? 10 : 20}
+                h={450}
+              >
                 <Stack gap={25}>
                   <TextInput
                     label="Your First Name"
@@ -395,12 +453,12 @@ export default function LandingPage() {
                     radius="md"
                     rows={3}
                   />
-                  <Group>
+                  <Group justify={isSmallscreen ? "center" : "start"}>
                     <Button
                       type="submit"
                       size="md"
                       h={52}
-                      w={240}
+                      w={isSmallscreen ? "80%" : 240}
                       radius="xl"
                       bg={"#3949ab"}
                     >
@@ -410,7 +468,13 @@ export default function LandingPage() {
                 </Stack>
               </Card>
 
-              <Card h={450} p={0} bg={"transparent"} shadow="none">
+              <Card
+                h={450}
+                p={0}
+                bg={"transparent"}
+                shadow="none"
+                display={isSmallscreen ? "none" : "block"}
+              >
                 <Flex align={"center"} h={"100%"}>
                   <Image
                     h={"80%"}
@@ -430,34 +494,43 @@ export default function LandingPage() {
         </Container>
       </Stack>
 
-      <Card bg={"#1a237e"} px={55} py={40} radius={0}>
-        <Flex justify={"space-between"} gap="xl" pt={20}>
+      <Card
+        bg={"#1a237e"}
+        px={isSmallscreen ? 25 : 55}
+        py={isSmallscreen ? 20 : 40}
+        radius={0}
+      >
+        <Flex justify={"space-between"} gap={40} wrap={"wrap"} pt={20}>
           <Stack gap="xs">
-            <Text fz={22} fw={700} c={"white"}>
+            <Text fz={22} fw={600} c={"white"}>
               Travel
             </Text>
-            <Text size="sm" c={"white"} w={"80%"}>
+            <Text size="sm" c={"white"} w={isSmallscreen ? "100%" : "80%"}>
               Explore Umrah and global travel packages with us.
             </Text>
-            <Group gap="md" mt="md">
-              <ActionIcon size="lg" radius={25} bg={"red"}>
-                <CheckIcon size={24} />
+            <Group mt="md">
+              <ActionIcon size={isSmallscreen ? 20 : 30} bg={"transparent"}>
+                <IconBrandTwitter />
               </ActionIcon>
-              <ActionIcon size="lg" radius={25} bg={"red"}>
-                <CheckIcon size={24} />
+              <ActionIcon size={isSmallscreen ? 20 : 30} bg={"transparent"}>
+                <IconBrandFacebook />
               </ActionIcon>
-              <ActionIcon size="lg" radius={25} bg={"red"}>
-                <CheckIcon size={24} />
+              <ActionIcon size={isSmallscreen ? 20 : 30} bg={"transparent"}>
+                <IconInsta />
               </ActionIcon>
-              <ActionIcon size="lg" radius={25} bg={"red"}>
-                <CheckIcon size={24} />
+              <ActionIcon size={isSmallscreen ? 20 : 30} bg={"transparent"}>
+                <IconBrandGoogle />
               </ActionIcon>
             </Group>
           </Stack>
 
-          <Flex gap={80} w={"50%"}>
-            <Stack gap={15}>
-              <Text fz={16} fw={700} c={"white"}>
+          <Flex
+            gap={isSmallscreen ? 30 : 80}
+            w={isSmallscreen ? "100%" : "50%"}
+            direction={isSmallscreen ? "column" : "row"}
+          >
+            <Stack gap={isSmallscreen ? 8 : 15}>
+              <Text fz={16} fw={600} c={"white"}>
                 PACKAGES
               </Text>
               <Box>
@@ -471,7 +544,7 @@ export default function LandingPage() {
             </Stack>
 
             <Stack gap={15} w={"100%"}>
-              <Text c={"white"} size="md" fw={700}>
+              <Text c={"white"} size="md" fw={600}>
                 SERVICES
               </Text>
 
@@ -496,7 +569,12 @@ export default function LandingPage() {
             </Stack>
           </Flex>
         </Flex>
-        <Text size="sm" mt={30} c={"white"}>
+        <Text
+          size="sm"
+          mt={30}
+          c={"white"}
+          ta={isSmallscreen ? "center" : "start"}
+        >
           © 2025. All rights reserved.
         </Text>
       </Card>

@@ -14,50 +14,58 @@ import {
   Textarea,
   TextInput,
   ActionIcon,
-  CheckIcon,
 } from "@mantine/core";
 
 import image17 from "../../assets/images/img-17.avif";
 import image18 from "../../assets/images/img-18.avif";
 import image19 from "../../assets/images/img-19.avif";
 import Navbar from "./Navbar";
-import { useNavigate } from "react-router-dom";
+import { useMediaQuery } from "@mantine/hooks";
+import IconBrandTwitter from "./iconTwitter";
+import IconBrandFacebook from "./iconFacebook";
+import IconInsta from "../auth/IconInsta";
+import IconBrandGoogle from "../../assets/icons/iconGoogle";
 
 function CustomPackages() {
-  const navigate = useNavigate();
+  const isSmallscreen = useMediaQuery("(max-width: 56.25em)")
   return (
     <>
       <Navbar />
-      <Container w={"100vw"} bg={"#1a237e"} fluid py={80}>
-        <Stack gap={130}>
+      <Container w={"100vw"} bg={"#1a237e"} fluid mt={80} py={30}>
+        <Stack gap={isSmallscreen ? 50 : 100}>
           <Stack>
-            <Title fz={62} fw={600} ta={"center"} c={"white"}>
+            <Title fz={isSmallscreen ? 36 : 62} fw={600} ta={"center"} c={"white"}>
               Custom Travel Packages
             </Title>
 
             <Flex justify={"center"}>
-              <Text fz={18} w={"45%"} fw={500} ta={"center"} c={"white"}>
+              <Text fz={18} w={isSmallscreen ? "100%" : "45%"} fw={500} ta={"center"} c={"white"}>
                 Create your unique travel experience with our tailored Umrah and
                 worldwide travel packages.
               </Text>
             </Flex>
           </Stack>
 
-          <Card bg={"transparent"} px={60}>
-            <Stack gap={60}>
-              <Stack gap={25}>
-                <Title fz={46} fw={600} ta={"center"} c={"white"}>
+          <Card bg={"transparent"} px={isSmallscreen ? 5 : 60}>
+            <Stack gap={isSmallscreen ? 30 : 60}>
+              <Stack gap={isSmallscreen ? 15 : 25}>
+                <Title fz={isSmallscreen ? 36 : 46} fw={600} ta={"center"} c={"white"}>
                   Custom Travel Packages
                 </Title>
                 <Flex justify={"center"}>
-                  <Text fz={16} fw={500} w={"48%"} ta={"center"} c={"white"}>
+                  <Text fz={16} fw={500} w={isSmallscreen ? "100%" : "48%"} ta={"center"} c={"white"}>
                     Tailored travel experiences to suit your unique preferences
                     and needs for unforgettable journeys.
                   </Text>
                 </Flex>
               </Stack>
 
-              <SimpleGrid cols={3} spacing={20}>
+              <SimpleGrid cols={{
+                xs: 1,
+                sm: 2,
+                md: 2,
+                lg: 3
+              }} spacing={20}>
                 <Card
                   radius={20}
                   h={470}
@@ -157,17 +165,21 @@ function CustomPackages() {
         </Stack>
       </Container>
 
-      <Card px={80} py={60}>
+      <Card px={isSmallscreen ? 20 : 80} py={isSmallscreen ? 20 : 60}>
         <Grid>
-          <Grid.Col span={6}>
+          <Grid.Col span={isSmallscreen ? 12 : 6}>
             <Stack gap={15}>
-              <Title fz={46} fw={600} w={"70%"}>
+              <Flex justify={isSmallscreen ? "center" : "start"}>
+              <Title fz={isSmallscreen ? 36 : 46} fw={600} w={isSmallscreen ? "100%" : "70%"} ta={isSmallscreen ? "center" : "start"}>
                 Custom Travel Packages Inquiry
               </Title>
-              <Text c="dimmed" w={"88%"}>
+              </Flex>
+               <Flex justify={isSmallscreen ? "center" : "start"}>
+              <Text c="dimmed" w={isSmallscreen ? "100%" : "88%"} ta={isSmallscreen ? "center" : "start"}>
                 Contact us to create your personalized travel experience with
                 our custom Umrah and worldwide packages tailored just for you.
               </Text>
+              </Flex>
               <Box>
                 <Text fw={700}>Connect</Text>
                 <Text c={"dimmed"}>1234567890</Text>
@@ -180,7 +192,7 @@ function CustomPackages() {
             </Stack>
           </Grid.Col>
 
-          <Grid.Col span={6} style={{ gap: 10 }} w={""} px={30}>
+          <Grid.Col span={isSmallscreen ? 12 : 6} style={{ gap: 10 }} w={""} px={isSmallscreen ? 10 : 30}>
             <Stack gap={20}>
               <TextInput
                 label="Your First Name"
@@ -203,7 +215,7 @@ function CustomPackages() {
                   fz={14}
                   fw={600}
                   h={52}
-                  w={240}
+                  w={isSmallscreen ? "80%" : 240}
                   bg={"#3949ab"}
                 >
                   Submit Your Inquiry
@@ -214,34 +226,38 @@ function CustomPackages() {
         </Grid>
       </Card>
 
-      <Card bg={"#1a237e"} px={55} py={40} radius={0}>
-        <Flex justify={"space-between"} gap="xl" pt={20}>
+        <Card bg={"#1a237e"} px={isSmallscreen ? 25 : 55} py={isSmallscreen ? 20 : 40} radius={0}>
+        <Flex justify={"space-between"} gap={40} wrap={"wrap"} pt={20}>
           <Stack gap="xs">
-            <Text fz={22} fw={700} c={"white"}>
+            <Text fz={22} fw={600} c={"white"}>
               Travel
             </Text>
-            <Text size="sm" c={"white"} w={"80%"}>
+            <Text size="sm" c={"white"} w={isSmallscreen ? "100%" : "80%"}>
               Explore Umrah and global travel packages with us.
             </Text>
-            <Group gap="md" mt="md">
-              <ActionIcon size="lg" radius={25} bg={"red"}>
-                <CheckIcon size={24} />
+            <Group mt="md">
+              <ActionIcon size={isSmallscreen ? 20 : 30} bg={"transparent"}>
+                <IconBrandTwitter />
               </ActionIcon>
-              <ActionIcon size="lg" radius={25} bg={"red"}>
-                <CheckIcon size={24} />
+              <ActionIcon size={isSmallscreen ? 20 : 30} bg={"transparent"}>
+                <IconBrandFacebook />
               </ActionIcon>
-              <ActionIcon size="lg" radius={25} bg={"red"}>
-                <CheckIcon size={24} />
+              <ActionIcon size={isSmallscreen ? 20 : 30} bg={"transparent"}>
+                <IconInsta />
               </ActionIcon>
-              <ActionIcon size="lg" radius={25} bg={"red"}>
-                <CheckIcon size={24} />
+              <ActionIcon size={isSmallscreen ? 20 : 30} bg={"transparent"}>
+                <IconBrandGoogle />
               </ActionIcon>
             </Group>
           </Stack>
 
-          <Flex gap={80} w={"50%"}>
-            <Stack gap={15}>
-              <Text fz={16} fw={700} c={"white"}>
+          <Flex
+            gap={isSmallscreen ? 30 : 80}
+            w={isSmallscreen ? "100%" : "50%"}
+            direction={isSmallscreen ? "column" : "row"}
+          >
+            <Stack gap={isSmallscreen ? 8 : 15}>
+              <Text fz={16} fw={600} c={"white"}>
                 PACKAGES
               </Text>
               <Box>
@@ -255,7 +271,7 @@ function CustomPackages() {
             </Stack>
 
             <Stack gap={15} w={"100%"}>
-              <Text c={"white"} size="md" fw={700}>
+              <Text c={"white"} size="md" fw={600}>
                 SERVICES
               </Text>
 
@@ -274,14 +290,18 @@ function CustomPackages() {
                 bg={"#3949ab"}
                 w={260}
                 h={54}
-                onClick={() => navigate("/become-agent")}
               >
                 Submit your travel inquiry
               </Button>
             </Stack>
           </Flex>
         </Flex>
-        <Text size="sm" mt={30} c={"white"}>
+        <Text
+          size="sm"
+          mt={30}
+          c={"white"}
+          ta={isSmallscreen ? "center" : "start"}
+        >
           © 2025. All rights reserved.
         </Text>
       </Card>

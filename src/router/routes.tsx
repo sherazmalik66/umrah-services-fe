@@ -23,9 +23,18 @@ import CustomPackages from "../pages/components/Custom-Packages";
 import BecomeAgent from "../pages/components/Become-Agent";
 import DiamondPackage from "../pages/components/Diamond-Package";
 const routes = createBrowserRouter([
-  { path: "/", element: <LandingPage /> },
 
-  { path: "navbar", element: <Navbar /> },
+
+   {  
+    path: "/", 
+    element: <LandingPage />
+   },
+
+   { 
+     path: "navbar",
+     element: <Navbar /> 
+    
+  },
 
   {
     path: "umrah-services",
