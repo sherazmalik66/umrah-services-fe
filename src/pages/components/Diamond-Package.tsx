@@ -50,7 +50,7 @@ function DiamondPackage() {
   return (
     <>
       <Navbar />
-      <Container fluid bg={"#f2f2f2"} p={0}>
+      <Container fluid bg={"#f2f2f2"} p={0} w={"100%"}>
         <Stack>
           <Card
             pl={isSmallscreen ? 50 : 100}
